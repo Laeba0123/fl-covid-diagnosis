@@ -1,0 +1,416 @@
+/* Modern CSS for COVID-19 Diagnosis App */
+:root {
+  --primary: #8ecae6;
+  --secondary: #219ebc;
+  --accent: #ffb4a2;
+  --success: #95d5b2;
+  --warning: #ffcf88;
+  --danger: #ffafcc;
+  --light: #f8f9fa;
+  --dark: #343a40;
+  --pastel-blue: #caf0f8;
+  --pastel-green: #d8f3dc;
+  --pastel-pink: #ffccd5;
+  --pastel-purple: #e0bbe4;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, var(--pastel-blue) 0%, var(--pastel-green) 100%);
+  min-height: 100vh;
+  color: var(--dark);
+  line-height: 1.6;
+}
+
+.navbar {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar h1 {
+  color: var(--secondary);
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--dark);
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-links a:hover {
+  color: var(--secondary);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--secondary);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  min-height: calc(100vh - 200px);
+}
+
+.hero {
+  text-align: center;
+  padding: 3rem 0;
+  animation: fadeIn 1s ease;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--secondary);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--dark);
+}
+
+.upload-container {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  max-width: 700px;
+  margin: 0 auto;
+  animation: slideUp 0.8s ease;
+}
+
+.upload-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.file-input-container {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+.file-input-container input[type="file"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.file-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem;
+  background: var(--pastel-blue);
+  border: 2px dashed var(--secondary);
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.file-label:hover {
+  background: var(--primary);
+  transform: translateY(-3px);
+}
+
+.file-label i {
+  font-size: 3rem;
+  color: var(--secondary);
+  margin-bottom: 1rem;
+}
+
+.file-label span {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.predict-btn {
+  background: var(--secondary);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 15px rgba(33, 158, 188, 0.3);
+}
+
+.predict-btn:hover {
+  background: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(33, 158, 188, 0.4);
+}
+
+.info-box {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: var(--pastel-green);
+  border-radius: 15px;
+}
+
+.info-box h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--secondary);
+}
+
+.info-box p {
+  margin-bottom: 1rem;
+}
+
+.alert {
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  animation: slideIn 0.5s ease;
+}
+
+.alert-error {
+  background: var(--pastel-pink);
+  color: #d90429;
+  border-left: 4px solid var(--danger);
+}
+
+.alert-success {
+  background: var(--pastel-green);
+  color: #2d6a4f;
+  border-left: 4px solid var(--success);
+}
+
+.results-container {
+  animation: fadeIn 0.8s ease;
+}
+
+.result-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.diagnosis-result {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.diagnosis-result h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.diagnosis {
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 700;
+}
+
+.diagnosis.covid {
+  background: var(--pastel-pink);
+  color: #d90429;
+}
+
+.diagnosis.normal {
+  background: var(--pastel-green);
+  color: #2d6a4f;
+}
+
+.diagnosis.lung_opacity, .diagnosis.viral pneumonia {
+  background: var(--warning);
+  color: #e85d04;
+}
+
+.confidence {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.confidence-warning {
+  background: var(--warning);
+  padding: 1rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.image-preview, .confidence-chart {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.xray-image, .chart-image {
+  max-width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.xray-image:hover, .chart-image:hover {
+  transform: scale(1.02);
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: var(--secondary);
+  color: white;
+  box-shadow: 0 4px 15px rgba(33, 158, 188, 0.3);
+}
+
+.btn-primary:hover {
+  background: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(33, 158, 188, 0.4);
+}
+
+.btn-secondary {
+  background: white;
+  color: var(--secondary);
+  border: 2px solid var(--secondary);
+}
+
+.btn-secondary:hover {
+  background: var(--pastel-blue);
+  transform: translateY(-3px);
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  margin-top: 2rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from { 
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .hero h2 {
+    font-size: 2rem;
+  }
+  
+  .upload-container {
+    padding: 1.5rem;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero">
+    <h2>COVID-19 Chest X-ray Diagnosis</h2>
+    <p>Upload a chest X-ray image to get AI-powered diagnosis using our privacy-preserving federated learning model</p>
+</div>
+
+<div class="upload-container">
+    <form action="{{ url_for('predict') }}" method="post" enctype="multipart/form-data" class="upload-form">
+        <div class="file-input-container">
+            <input type="file" name="file" id="file" accept="image/*" required>
+            <label for="file" class="file-label">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <span>Choose X-ray Image</span>
+            </label>
+        </div>
+        
+        <button type="submit" class="predict-btn">
+            <i class="fas fa-stethoscope"></i> Diagnose
+        </button>
+    </form>
+
+    <div class="info-box">
+        <h3><i class="fas fa-info-circle"></i> Supported Formats</h3>
+        <p>PNG, JPG, JPEG images up to 16MB</p>
+        
+        <h3><i class="fas fa-shield-alt"></i> Privacy First</h3>
+        <p>Your data is processed locally and never stored on our servers</p>
+    </div>
+</div>
+{% endblock %}

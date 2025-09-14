@@ -47,4 +47,6 @@ outputs/
 .ipynb_checkpoints/
 
 # Logs
-*.log
+*.logdesktop.ini
+desktop.ini
+server.log
